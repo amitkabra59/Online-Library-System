@@ -66,17 +66,16 @@
                             if(rs.next()){
                                
                           
-                               String sql="INSERT into login values(?.?)";
+                               String sql="INSERT into login values(?,?)";
                                ps=con.prepareStatement(sql);
                                ps.setString(1,email);
                                ps.setDate(2,now);
-                               
-                               
+
                                ps.executeUpdate();
-//                            session = request.getSession();
-//                            session.setAttribute("email", email);
+                               session = request.getSession();
+                               session.setAttribute("email", email);
                             
-                              //response.sendRedirect("http://www.google.com");
+                               response.sendRedirect("http://www.google.com");
                              }
                                  else {
                                   out.print("<div class=\"container\" align=\"center\"><div class=\"well  \"><font size=\"4\">Invalid email or password</font></div></div>");

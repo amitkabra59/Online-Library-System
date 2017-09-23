@@ -3,13 +3,14 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.sql.Timestamp;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Calendar;
+import java.util.Date;
 
 public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -58,6 +59,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("  <html>\n");
       out.write("    <head>\n");
@@ -84,8 +86,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
                 String password=request.getParameter("password");
                  
                 
-                        Calendar calendar = Calendar.getInstance();
-                        java.sql.Timestamp timestamp = new java.sql.Timestamp(calendar.getTime().getTime());
+                        java.sql.Date now = new java.sql.Date(System.currentTimeMillis());
                         Connection con = null;
                         PreparedStatement ps;
                         ResultSet rs;
@@ -110,22 +111,23 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
                             
                             rs=ps.executeQuery();
                             out.print("Hiii");
-                            while(rs.next()){
-                               String em=rs.getString("email");
+                            if(rs.next()){
                                
-                               String sql="INSERT into login values(?,?)";
+                          
+                               String sql="INSERT into login values(?.?)";
+                               ps=con.prepareStatement(sql);
                                ps.setString(1,email);
-                               ps.setTimestamp(2,timestamp);
+                               ps.setDate(2,now);
+
+                               ps.executeUpdate();
+                               session = request.getSession();
+                               session.setAttribute("email", email);
                             
-//                            session = request.getSession();
-//                            session.setAttribute("email", email);
-                            
-                            response.sendRedirect("http://www.google.com");
+                              //response.sendRedirect("http://www.google.com");
                              }
-//                             else {
-//                                out.print(rs.getString(1));
-//                              out.print("<div class=\"container\" align=\"center\"><div class=\"well  \"><font size=\"4\">Invalid email or password</font></div></div>");
-//                            }
+                                 else {
+                                  out.print("<div class=\"container\" align=\"center\"><div class=\"well  \"><font size=\"4\">Invalid email or password</font></div></div>");
+                                }
                              
                             
                              
@@ -166,10 +168,10 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("     <center>  \n");
       out.write("    <div class=\"container\">\n");
       out.write("     <label><b>Username</b></label> &#8209;&nbsp;\n");
-      out.write("     <input style=\"width:50%;\" type=\"email\" placeholder=\"Enter your username\" name=\"uname\" class=\"validate\" required>\n");
+      out.write("     <input style=\"width:50%;\" type=\"email\" placeholder=\"Enter your username\" name=\"email\" class=\"validate\" required>\n");
       out.write("     <br><br>\n");
       out.write("     <label><b>Password</b></label> &#8209;&nbsp;\n");
-      out.write("     <input style=\"width:50%;\" type=\"password\" placeholder=\"Enter your password\" name=\"psw\" class=\"validate\" required>\n");
+      out.write("     <input style=\"width:50%;\" type=\"password\" placeholder=\"Enter your password\" name=\"password\" class=\"validate\" required>\n");
       out.write("    </div></center>\n");
       out.write("            <div><center><button class=\"btn waves-effect waves-light\" type=\"submit\" name=\"action\">Login <i class=\"material-icons right\">send</i></center></div>\n");
       out.write("    </button>\n");
