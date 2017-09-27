@@ -6,12 +6,52 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+	
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+
     </head>
+	
+	<style>	 
+	
+input[type=text] {
+    width: 502px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    <!--background-image: url('searchicon.png');-->
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 70%;
+}
+    </style>
+	
     <body>
-	<link rel="stylesheet" type="text/css" href="header.html">
-        <div>TODO write content</div>
-    </body>
+	<div class="w3-bar w3-blue">
+      <a href="#" class="w3-bar-item w3-button w3-mobile">Student Library</a>
+      <a href="#" class="w3-bar-item w3-button w3-mobile">Link 1</a>
+      <a href="#" class="w3-bar-item w3-button w3-mobile">Link 2</a>
+      <a href="#" class="w3-bar-item w3-button w3-mobile">Link 3</a>
+    </div> <br><br><br><br>
+	
+	<h2 class="w3-wide"><center>Welcome to the Library</center></h2>
+	<br>
+	<center><input type="text" name="search" placeholder="Search.."></center> 
+    
+	
+	<p><center>
+	 <button class="w3-btn w3-white w3-border w3-border-blue w3-wide" type="submit">Group rooms</button>
+	 <button class="w3-btn w3-white w3-border w3-border-blue w3-wide" type="submit">Renew Loans</button>
+	 <button class="w3-btn w3-white w3-border w3-border-blue w3-wide" type="submit">Feedback</button>
+	</center></p>
+	</body>
 </html>
