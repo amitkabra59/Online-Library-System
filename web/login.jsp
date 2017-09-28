@@ -129,9 +129,9 @@
 	</form>
 	
     <p><center><b>OR</b></p>
-	<form method="post" action="register.html">
+	<form method="post" action="register.jsp">
     <center><button class="btn waves-effect waves-light" type="submit" name="action">Register here</button>
-     
+    </center></form>
         
     <br><br><br><br>
 	
