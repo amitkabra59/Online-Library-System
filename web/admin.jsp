@@ -70,7 +70,7 @@ and open the template in the editor.
                             session = request.getSession();
                             session.setAttribute("email", email);
                             out.print("Login Success");
-                            response.sendRedirect("admin_dashboard.html");
+                            response.sendRedirect("adminhome.html");
                              }
                              else {
                               out.print("<div class=\"container\" align=\"center\"><div class=\"well  \"><font size=\"4\">Invalid</font></div></div>");
