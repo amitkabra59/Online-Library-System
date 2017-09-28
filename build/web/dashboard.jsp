@@ -1,3 +1,8 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
 <!DOCTYPE html>
   <html>
     <head>
@@ -36,11 +41,37 @@
   <br><br><br><br><br>
   
 	<!-- Logout Button-->
+        <form action="index.html">
 	<div><center>
 	<button class="btn waves-effect waves-light" type="submit" name="logout">Logout</button>
-	</div>
+        </center></div></form>
 	<br><br><br><br>
-	
+	<% 
+        session=request.getSession(false);
+        
+        if((session.getAttribute("email"))!=null){
+        try{
+        Class.forName("com.mysql.jdbc.Driver");  
+             
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/agile","root","root");  
+            Statement stmt=con.createStatement();
+            String s="select * from register where email=?;";
+            PreparedStatement ps= con.prepareStatement(s);
+            ps.setString(1,session.getAttribute("email").toString());
+            ResultSet rs=ps.executeQuery();
+            
+            if(rs.next()){
+                
+            out.println("Welcome"+rs.getString("firstname"));
+            out.println("<br><br> Session created");
+            
+            }
+            }
+        catch(Exception e){
+        e.printStackTrace();
+        }
+        }
+        %>
 	<!-- Footer-->
     <footer class="page-footer">
           <div class="container">
@@ -60,9 +91,10 @@
           </div>
           <div class="footer-copyright">
             
-           <p><center><i> Â© 2017 EliteNinjas</i></center>
+           <p><center><i> © 2017 EliteNinjas</i></center>
             
           </div>
         </footer>
+        
         </body>
   </html>

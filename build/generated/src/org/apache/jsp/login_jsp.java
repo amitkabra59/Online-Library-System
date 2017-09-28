@@ -114,7 +114,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
                             if(rs.next()){
                                
                           
-                               String sql="INSERT into login values(?.?)";
+                               String sql="INSERT into login values(?,?)";
                                ps=con.prepareStatement(sql);
                                ps.setString(1,email);
                                ps.setDate(2,now);
@@ -123,7 +123,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
                                session = request.getSession();
                                session.setAttribute("email", email);
                             
-                              //response.sendRedirect("http://www.google.com");
+                               response.sendRedirect("http://www.google.com");
                              }
                                  else {
                                   out.print("<div class=\"container\" align=\"center\"><div class=\"well  \"><font size=\"4\">Invalid email or password</font></div></div>");

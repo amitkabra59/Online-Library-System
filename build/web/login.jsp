@@ -28,71 +28,71 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       
-      <% 
-    if("POST".equalsIgnoreCase(request.getMethod()))
-          {
-            if(request.getParameter("action")!=null){
-               
-                String email= request.getParameter("email");
-                
-                String password=request.getParameter("password");
-                 
-                
-                        java.sql.Date now = new java.sql.Date(System.currentTimeMillis());
-                        Connection con = null;
-                        PreparedStatement ps;
-                        ResultSet rs;
-                     
-                        String query;
-                    try
-                        {
-                            Class.forName("com.mysql.jdbc.Driver");
-                        }
-                        catch(Exception e)
-                        {
-                            System.out.println(e);
-                }
-                    try
-                        {
-                            con =DriverManager.getConnection("jdbc:mysql://localhost:3307/agile","root","root"); 
-                            
-                            query="select * from register where email=? and password=?";
-                            ps=con.prepareStatement(query);
-                            ps.setString(1,email);
-                            ps.setString(2, password);
-                            
-                            rs=ps.executeQuery();
-                            out.print("Hiii");
-                            if(rs.next()){
-                               
-                          
-                               String sql="INSERT into login values(?,?)";
-                               ps=con.prepareStatement(sql);
-                               ps.setString(1,email);
-                               ps.setDate(2,now);
+        <% 
+      if("POST".equalsIgnoreCase(request.getMethod()))
+            {
+              if(request.getParameter("action")!=null){
 
-                               ps.executeUpdate();
-                               session = request.getSession();
-                               session.setAttribute("email", email);
-                            
-                               response.sendRedirect("http://www.google.com");
-                             }
-                                 else {
-                                  out.print("<div class=\"container\" align=\"center\"><div class=\"well  \"><font size=\"4\">Invalid email or password</font></div></div>");
-                                }
-                             
-                            
-                             
-                             
-                        }
-                        catch(SQLException e)
-                        {
-                            System.out.println(e);
-                        }
+                  String email= request.getParameter("email");
+
+                  String password=request.getParameter("password");
+
+
+                          java.sql.Date now = new java.sql.Date(System.currentTimeMillis());
+                          Connection con = null;
+                          PreparedStatement ps;
+                          ResultSet rs;
+
+                          String query;
+                      try
+                          {
+                              Class.forName("com.mysql.jdbc.Driver");
+                          }
+                          catch(Exception e)
+                          {
+                              System.out.println(e);
+                  }
+                      try
+                          {
+                              con =DriverManager.getConnection("jdbc:mysql://localhost:3307/agile","root","root"); 
+
+                              query="select * from register where email=? and password=?";
+                              ps=con.prepareStatement(query);
+                              ps.setString(1,email);
+                              ps.setString(2, password);
+
+                              rs=ps.executeQuery();
+
+                              if(rs.next()){
+
+
+                                 String sql="INSERT into login values(?,?)";
+                                 ps=con.prepareStatement(sql);
+                                 ps.setString(1,email);
+                                 ps.setDate(2,now);
+
+                                 ps.executeUpdate();
+
+                                 session = request.getSession();
+                                 session.setAttribute("email", email);
+                                 response.sendRedirect("dashboard.jsp");
+                               }
+                               else {
+                                out.print("<div class=\"container\" align=\"center\"><div class=\"well  \"><font size=\"4\">Invalid email or password</font></div></div>");
+                              }
+
+
+
+
+                          }
+                          catch(SQLException e)
+                          {
+                              System.out.println(e);
+                          }
+              }
             }
-          }
-        
-    %>
+
+      %>
     
     </head>
 	
@@ -129,9 +129,9 @@
 	</form>
 	
     <p><center><b>OR</b></p>
-	<form method="post" action="register.html">
+	<form method="post" action="register.jsp">
     <center><button class="btn waves-effect waves-light" type="submit" name="action">Register here</button>
-     
+    </center></form>
         
     <br><br><br><br>
 	
