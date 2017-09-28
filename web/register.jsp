@@ -70,7 +70,7 @@
         
       </div>
       </div>
-    <center><button class="btn waves-effect waves-light" type="submit" id="submit" name="submit">Register</button><%=request.getAttribute("status")%></center>
+    <center><button class="btn waves-effect waves-light" type="submit" id="submit" name="submit">Register</button></center>
     </form>
 	
             

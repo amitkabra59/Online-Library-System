@@ -1,3 +1,8 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
 <!DOCTYPE html>
   <html>
     <head>
@@ -12,51 +17,63 @@
 	  <link rel="stylesheet" type="text/css" href="style.css">
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-	
+    
+     </head>
 	
     <body> 
     <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
 	  
-	  
 	<!--Navigation bar-->  
-     <nav class="nav-extended">
-     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo"><b> Student Library </b></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html"><i class="material-icons left">search</i>Search</a></li>
-      </ul>
-     </div>
-    </nav>
-    <center><h4>Your account</h4></center>
-	
-	<div class="row" style="margin-left:50px;">
-        <div class="col s2 m2">
-          <div class="card">
-            <div class="card-image">
-             <img src="agl.jpg">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>Book details are shown here. </p>
-            </div>
-            <div class="card-action">
-              <a href="#">Renew</a>
-            </div>
-          </div>
+  <nav>
+    <div class="nav-wrapper">
+      <form>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
         </div>
+      </form>
     </div>
-	
+  </nav>
+
+  <br><br><br><br><br>
+  
 	<!-- Logout Button-->
+        <form action="index.html">
 	<div><center>
 	<button class="btn waves-effect waves-light" type="submit" name="logout">Logout</button>
-	</div>
+        </center></div></form>
 	<br><br><br><br>
-	
+	<% 
+        session=request.getSession(false);
+        
+        if((session.getAttribute("email"))!=null){
+        try{
+        Class.forName("com.mysql.jdbc.Driver");  
+             
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/agile","root","root");  
+            Statement stmt=con.createStatement();
+            String s="select * from register where email=?;";
+            PreparedStatement ps= con.prepareStatement(s);
+            ps.setString(1,session.getAttribute("email").toString());
+            ResultSet rs=ps.executeQuery();
+            
+            if(rs.next()){
+                
+            out.println("Welcome"+rs.getString("firstname"));
+            out.println("<br><br> Session created");
+            
+            }
+            }
+        catch(Exception e){
+        e.printStackTrace();
+        }
+        }
+        %>
 	<!-- Footer-->
-    <footer class="page-footer" style="color:teal">
+    <footer class="page-footer">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
@@ -78,5 +95,6 @@
             
           </div>
         </footer>
+        
         </body>
   </html>
