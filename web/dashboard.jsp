@@ -54,8 +54,7 @@
     <div class="w3-dropdown-hover w3-right w3-blue">
     <button class="w3-button w3-black">Account</button>
     <div class="w3-dropdown-content w3-bar-block w3-border" style="right:0">
-      <a href="#" class="w3-bar-item w3-button">Logout</a>
-      <a href="index.html" class="w3-bar-item w3-button">Option 2</a>
+      <a href="index.html" class="w3-bar-item w3-button">Logout</a>
     </div>
   </div>
        <div class="w3-clear"></div>
@@ -75,10 +74,7 @@
             ResultSet rs=ps.executeQuery();
             
             if(rs.next()){
-                
-            out.println("Welcome"+rs.getString("firstname"));
-            out.println("<br><br> Session created");
-            
+                %> <h3 class="w3-wide"> Welcome <%= rs.getString("firstname") %> </h3><% 
             }
             }
         catch(Exception e){
