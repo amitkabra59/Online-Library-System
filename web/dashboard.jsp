@@ -27,10 +27,10 @@
     </div>
   </nav>-->
       <div class="w3-bar w3-blue">
-      <a href="#" class="w3-bar-item w3-button w3-mobile w3-wide">Student Library</a>
+      <a href="index.html" class="w3-bar-item w3-button w3-mobile w3-wide">Student Library</a>
       <a href="#" class="w3-bar-item w3-button w3-mobile">Link 1</a>
       <a href="#" class="w3-bar-item w3-button w3-mobile">Link 2</a>
-      <a href="Index.html" class="w3-bar-item w3-button w3-mobile w3-right">Logout</a>
+      <a href="index.html" class="w3-bar-item w3-button w3-mobile w3-right">Logout</a>
       
       <!--<div class="w3-dropdown-hover w3-right w3-blue">
       <button class="w3-button w3-black">Account</button>
@@ -40,7 +40,7 @@
       </div> -->
       </div> <br><br><br><br>
    <br><br><br><br><br>
-  <h3 class="w3-wide"><center> Welcome</center> </h3>
+  
 	<!-- Logout Button-->
        <!-- <form action="index.html">
 	<div><center><br><br><br><br>
@@ -64,7 +64,7 @@
             ResultSet rs=ps.executeQuery();
             
             if(rs.next()){
-                %> <h3 class="w3-wide"> Welcome <%= rs.getString("firstname") %> </h3><% 
+                %> <center><h3 class="w3-wide"> Welcome <%= rs.getString("firstname") %> </h3></center><% 
             }
             }
         catch(Exception e){
