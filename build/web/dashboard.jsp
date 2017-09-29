@@ -44,12 +44,21 @@
       </div> <br><br><br><br>
 
   <br><br><br><br><br>
-  <h3 class="w3-wide"> Welcome </h3>
+  <h3 class="w3-wide"><center> Welcome</center> </h3>
 	<!-- Logout Button-->
-        <form action="index.html">
+       <!-- <form action="index.html">
 	<div><center><br><br><br><br>
 	<button class="btn waves-effect waves-light" type="submit" name="logout">Logout</button>
-        </center></div></form>
+        </center></div></form> -->
+       
+    <div class="w3-dropdown-hover w3-right w3-blue">
+    <button class="w3-button w3-black">Account</button>
+    <div class="w3-dropdown-content w3-bar-block w3-border" style="right:0">
+      <a href="#" class="w3-bar-item w3-button">Logout</a>
+      <a href="index.html" class="w3-bar-item w3-button">Option 2</a>
+    </div>
+  </div>
+       <div class="w3-clear"></div>
 	<br><br><br><br>
 	<% 
         session=request.getSession(false);
