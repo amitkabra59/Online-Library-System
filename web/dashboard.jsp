@@ -44,7 +44,6 @@
       </div> <br><br><br><br>
 
   <br><br><br><br><br>
-  <h3 class="w3-wide"> Welcome </h3>
 	<!-- Logout Button-->
         <form action="index.html">
 	<div><center><br><br><br><br>
@@ -66,10 +65,7 @@
             ResultSet rs=ps.executeQuery();
             
             if(rs.next()){
-                
-            out.println("Welcome"+rs.getString("firstname"));
-            out.println("<br><br> Session created");
-            
+                %> <h3 class="w3-wide"> Welcome <%= rs.getString("firstname") %> </h3><% 
             }
             }
         catch(Exception e){
