@@ -27,7 +27,7 @@
     </div>
   </nav>-->
       <div class="w3-bar w3-blue">
-      <a href="#" class="w3-bar-item w3-button w3-mobile">Student Library</a>
+      <a href="#" class="w3-bar-item w3-button w3-mobile w3-wide">Student Library</a>
       <a href="#" class="w3-bar-item w3-button w3-mobile">Link 1</a>
       <a href="#" class="w3-bar-item w3-button w3-mobile">Link 2</a>
       <a href="Index.html" class="w3-bar-item w3-button w3-mobile w3-right">Logout</a>
