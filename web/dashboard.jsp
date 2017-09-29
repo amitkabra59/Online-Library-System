@@ -12,7 +12,7 @@
     
      </head>
 	
-    <body> 
+    <body background="library.jpg"> 
 	  
 	<!--Navigation bar-->  
   <!--<nav>
