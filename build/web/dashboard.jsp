@@ -6,17 +6,7 @@
 <!DOCTYPE html>
   <html>
     <head>
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen"/>
-      <!-- Compiled and minified CSS -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-      <!-- Compiled and minified JavaScript -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-	  <link rel="stylesheet" type="text/css" href="style.css">
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      
       
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     
@@ -83,7 +73,6 @@
         }
         %>
         
-        <br><br><br><br><br><br>
 	<!-- Footer-->
    <!-- <footer class="page-footer">
           <div class="container">
