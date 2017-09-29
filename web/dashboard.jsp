@@ -30,10 +30,16 @@
       <a href="#" class="w3-bar-item w3-button w3-mobile">Student Library</a>
       <a href="#" class="w3-bar-item w3-button w3-mobile">Link 1</a>
       <a href="#" class="w3-bar-item w3-button w3-mobile">Link 2</a>
-      <a href="#" class="w3-bar-item w3-button w3-mobile">Link 3</a>
+      <a href="Index.html" class="w3-bar-item w3-button w3-mobile w3-right">Logout</a>
+      
+      <!--<div class="w3-dropdown-hover w3-right w3-blue">
+      <button class="w3-button w3-black">Account</button>
+      <div class="w3-dropdown-content w3-bar-block w3-border" style="right:0">
+      <a href="index.html" class="w3-bar-item w3-button">Logout</a>
+      </div>
+      </div> -->
       </div> <br><br><br><br>
-
-  <br><br><br><br><br>
+   <br><br><br><br><br>
   <h3 class="w3-wide"><center> Welcome</center> </h3>
 	<!-- Logout Button-->
        <!-- <form action="index.html">
@@ -41,12 +47,6 @@
 	<button class="btn waves-effect waves-light" type="submit" name="logout">Logout</button>
         </center></div></form> -->
        
-    <div class="w3-dropdown-hover w3-right w3-blue">
-    <button class="w3-button w3-black">Account</button>
-    <div class="w3-dropdown-content w3-bar-block w3-border" style="right:0">
-      <a href="index.html" class="w3-bar-item w3-button">Logout</a>
-    </div>
-  </div>
        <div class="w3-clear"></div>
 	<br><br><br><br>
 	<% 
