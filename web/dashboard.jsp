@@ -17,16 +17,15 @@
 	  <link rel="stylesheet" type="text/css" href="style.css">
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     
      </head>
 	
     <body> 
-    <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
 	  
 	<!--Navigation bar-->  
-  <nav>
+  <!--<nav>
     <div class="nav-wrapper">
       <form>
         <div class="input-field">
@@ -36,13 +35,19 @@
         </div>
       </form>
     </div>
-  </nav>
+  </nav>-->
+      <div class="w3-bar w3-blue">
+      <a href="#" class="w3-bar-item w3-button w3-mobile">Student Library</a>
+      <a href="#" class="w3-bar-item w3-button w3-mobile">Link 1</a>
+      <a href="#" class="w3-bar-item w3-button w3-mobile">Link 2</a>
+      <a href="#" class="w3-bar-item w3-button w3-mobile">Link 3</a>
+      </div> <br><br><br><br>
 
   <br><br><br><br><br>
-  
+  <h3 class="w3-wide"> Welcome </h3>
 	<!-- Logout Button-->
         <form action="index.html">
-	<div><center>
+	<div><center><br><br><br><br>
 	<button class="btn waves-effect waves-light" type="submit" name="logout">Logout</button>
         </center></div></form>
 	<br><br><br><br>
@@ -72,13 +77,15 @@
         }
         }
         %>
+        
+        <br><br><br><br><br><br>
 	<!-- Footer-->
-    <footer class="page-footer">
+   <!-- <footer class="page-footer">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
                 <h5 class="white-text">Footer Content</h5>
-               <!-- <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p> -->
+               <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
               </div>
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text"> More Links</h5>
@@ -94,7 +101,7 @@
            <p><center><i> © 2017 EliteNinjas</i></center>
             
           </div>
-        </footer>
+        </footer> -->
         
         </body>
   </html>
